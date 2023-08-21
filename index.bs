@@ -353,10 +353,10 @@ ErrorResponse = {
 }
 
 ResultData = (
-  BrowsingContextResult //
-  EmptyResult //
-  NetworkResult //
-  ScriptResult //
+  BrowsingContextResult /
+  EmptyResult /
+  NetworkResult /
+  ScriptResult /
   SessionResult
 )
 
@@ -1232,7 +1232,7 @@ SessionCommand = (
 
 <pre class="cddl local-cddl">
 SessionResult = (
-   session.NewResult //
+   session.NewResult /
    session.StatusResult
 )
 </pre>
@@ -1847,10 +1847,10 @@ BrowsingContextCommand = (
 
 <pre class="cddl local-cddl">
 BrowsingContextResult = (
-  browsingContext.CaptureScreenshotResult //
-  browsingContext.CreateResult //
-  browsingContext.GetTreeResult //
-  browsingContext.NavigateResult //
+  browsingContext.CaptureScreenshotResult /
+  browsingContext.CreateResult /
+  browsingContext.GetTreeResult /
+  browsingContext.NavigateResult /
   browsingContext.PrintResult
 )
 
@@ -2223,7 +2223,7 @@ Base64-encoded string.
       }
 
       browsingContext.ClipRectangle = (
-        browsingContext.BoxClipRectangle //
+        browsingContext.BoxClipRectangle /
         browsingContext.ElementClipRectangle
       )
 
@@ -5680,8 +5680,8 @@ ScriptCommand = (
 
 <pre class="cddl local-cddl">
 ScriptResult = (
-  script.AddPreloadScriptResult //
-  script.EvaluateResult //
+  script.AddPreloadScriptResult /
+  script.EvaluateResult /
   script.GetRealmsResult
 )
 
@@ -5828,7 +5828,7 @@ To <dfn>create a channel</dfn> given |session|, |realm| and |protocol value|:
 
 <pre class="cddl remote-cddl local-cddl">
 script.EvaluateResult = (
-  script.EvaluateResultSuccess //
+  script.EvaluateResultSuccess /
   script.EvaluateResultException
 )
 
@@ -5926,14 +5926,14 @@ strong [=/map=] from handle ids to their corresponding objects.
 
 <pre class="cddl remote-cddl">
 script.LocalValue = (
-  script.RemoteReference //
-  script.PrimitiveProtocolValue //
-  script.ChannelValue //
-  script.ArrayLocalValue //
-  script.DateLocalValue //
-  script.MapLocalValue //
-  script.ObjectLocalValue //
-  script.RegExpLocalValue //
+  script.RemoteReference /
+  script.PrimitiveProtocolValue /
+  script.ChannelValue /
+  script.ArrayLocalValue /
+  script.DateLocalValue /
+  script.MapLocalValue /
+  script.ObjectLocalValue /
+  script.RegExpLocalValue /
   script.SetLocalValue
 )
 
@@ -6172,11 +6172,11 @@ Issue: This has the wrong error code
 
 <pre class="cddl remote-cddl local-cddl">
 script.PrimitiveProtocolValue = (
-  script.UndefinedValue //
-  script.NullValue //
-  script.StringValue //
-  script.NumberValue //
-  script.BooleanValue //
+  script.UndefinedValue /
+  script.NullValue /
+  script.StringValue /
+  script.NumberValue /
+  script.BooleanValue /
   script.BigIntValue
 )
 
@@ -6340,13 +6340,13 @@ To <dfn>deserialize primitive protocol value</dfn> given a |primitive protocol v
 
 <pre class="cddl local-cddl">
 script.RealmInfo = (
-  script.WindowRealmInfo //
-  script.DedicatedWorkerRealmInfo //
-  script.SharedWorkerRealmInfo //
-  script.ServiceWorkerRealmInfo //
-  script.WorkerRealmInfo //
-  script.PaintWorkletRealmInfo //
-  script.AudioWorkletRealmInfo //
+  script.WindowRealmInfo /
+  script.DedicatedWorkerRealmInfo /
+  script.SharedWorkerRealmInfo /
+  script.ServiceWorkerRealmInfo /
+  script.WorkerRealmInfo /
+  script.PaintWorkletRealmInfo /
+  script.AudioWorkletRealmInfo /
   script.WorkletRealmInfo
 )
 
@@ -6535,7 +6535,7 @@ The <code>script.RealmType</code> type represents the different types of Realm.
 <!-- This is specifically ordered in the order in which matches need to be -->
 <!-- evaluated, since the definitions are overlapping -->
 script.RemoteReference = (
-  script.SharedReference //
+  script.SharedReference /
   script.RemoteObjectReference
 )
 
@@ -6643,27 +6643,27 @@ To <dfn>deserialize shared reference</dfn> given |shared reference|, |realm| and
 
 <pre class="cddl remote-cddl local-cddl">
 script.RemoteValue = (
-  script.PrimitiveProtocolValue //
-  script.SymbolRemoteValue //
-  script.ArrayRemoteValue //
-  script.ObjectRemoteValue //
-  script.FunctionRemoteValue //
-  script.RegExpRemoteValue //
-  script.DateRemoteValue //
-  script.MapRemoteValue //
-  script.SetRemoteValue //
-  script.WeakMapRemoteValue //
-  script.WeakSetRemoteValue //
-  script.IteratorRemoteValue //
-  script.GeneratorRemoteValue //
-  script.ErrorRemoteValue //
-  script.ProxyRemoteValue //
-  script.PromiseRemoteValue //
-  script.TypedArrayRemoteValue //
-  script.ArrayBufferRemoteValue //
-  script.NodeListRemoteValue //
-  script.HTMLCollectionRemoteValue //
-  script.NodeRemoteValue //
+  script.PrimitiveProtocolValue /
+  script.SymbolRemoteValue /
+  script.ArrayRemoteValue /
+  script.ObjectRemoteValue /
+  script.FunctionRemoteValue /
+  script.RegExpRemoteValue /
+  script.DateRemoteValue /
+  script.MapRemoteValue /
+  script.SetRemoteValue /
+  script.WeakMapRemoteValue /
+  script.WeakSetRemoteValue /
+  script.IteratorRemoteValue /
+  script.GeneratorRemoteValue /
+  script.ErrorRemoteValue /
+  script.ProxyRemoteValue /
+  script.PromiseRemoteValue /
+  script.TypedArrayRemoteValue /
+  script.ArrayBufferRemoteValue /
+  script.NodeListRemoteValue /
+  script.HTMLCollectionRemoteValue /
+  script.NodeRemoteValue /
   script.WindowProxyRemoteValue
 )
 
@@ -7479,10 +7479,10 @@ Record=] of type <code>throw</code>, |exception|, is given by:
 [=Local end definition=]
 
 <pre class="cddl local-cddl">
-script.Source = (
+script.Source = {
   realm: script.Realm,
   ? context: browsingContext.BrowsingContext
-);
+}
 </pre>
 
 The <code>script.Source</code> type represents a <code>script.Realm</code> with
@@ -7531,7 +7531,7 @@ script.ContextTarget = {
 }
 
 script.Target = (
-  script.RealmTarget //
+  script.RealmTarget /
   script.ContextTarget
 );
 </pre>
@@ -8410,8 +8410,8 @@ LogEvent = (
 log.Level = "debug" / "info" / "warn" / "error"
 
 log.Entry = (
-  log.GenericLogEntry //
-  log.ConsoleLogEntry //
+  log.GenericLogEntry /
+  log.ConsoleLogEntry /
   log.JavascriptLogEntry
 )
 
