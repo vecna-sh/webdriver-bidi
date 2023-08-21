@@ -1736,10 +1736,10 @@ WebDriver sessions and cleans up automation state in the remote browser instance
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      browser.Close = {
+      browser.Close = (
         method: "browser.close",
         params: EmptyParams,
-      }
+      )
       </pre>
    </dd>
    <dt>Return Type</dt>
@@ -2153,10 +2153,10 @@ The <dfn export for=commands>browsingContext.activate</dfn> command activates an
    <dt>Command Type</dt>
    <dd>
     <pre class="cddl remote-cddl">
-      browsingContext.Activate = {
+      browsingContext.Activate = (
         method: "browsingContext.activate",
         params: browsingContext.ActivateParameters
-      };
+      )
 
       browsingContext.ActivateParameters = {
         context: browsingContext.BrowsingContext
@@ -2212,10 +2212,10 @@ Base64-encoded string.
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      browsingContext.CaptureScreenshot = {
+      browsingContext.CaptureScreenshot = (
         method: "browsingContext.captureScreenshot",
         params: browsingContext.CaptureScreenshotParameters
-      }
+      )
 
       browsingContext.CaptureScreenshotParameters = {
         context: browsingContext.BrowsingContext,
@@ -2456,10 +2456,10 @@ The <dfn export for=commands>browsingContext.close</dfn> command closes a
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      browsingContext.Close = {
+      browsingContext.Close = (
         method: "browsingContext.close",
         params: browsingContext.CloseParameters
-      }
+      )
 
       browsingContext.CloseParameters = {
         context: browsingContext.BrowsingContext
@@ -2509,10 +2509,10 @@ The <dfn export for=commands>browsingContext.create</dfn> command creates a new
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      browsingContext.Create = {
+      browsingContext.Create = (
         method: "browsingContext.create",
         params: browsingContext.CreateParameters
-      }
+      )
 
       browsingContext.CreateType = "tab" / "window"
 
@@ -2606,10 +2606,10 @@ or all top-level contexts when no parent is provided.
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      browsingContext.GetTree = {
+      browsingContext.GetTree = (
         method: "browsingContext.getTree",
         params: browsingContext.GetTreeParameters
-      }
+      )
 
       browsingContext.GetTreeParameters = {
         ? maxDepth: js-uint,
@@ -2667,10 +2667,10 @@ command allows closing an open prompt
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      browsingContext.HandleUserPrompt = {
+      browsingContext.HandleUserPrompt = (
         method: "browsingContext.handleUserPrompt",
         params: browsingContext.HandleUserPromptParameters
-      }
+      )
 
       browsingContext.HandleUserPromptParameters = {
         context: browsingContext.BrowsingContext,
@@ -2733,10 +2733,10 @@ browsing context to the given URL.
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      browsingContext.Navigate = {
+      browsingContext.Navigate = (
         method: "browsingContext.navigate",
         params: browsingContext.NavigateParameters
-      }
+      )
 
       browsingContext.NavigateParameters = {
         context: browsingContext.BrowsingContext,
@@ -2801,10 +2801,10 @@ PDF document represented as a Base64-encoded string.
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      browsingContext.Print = {
+      browsingContext.Print = (
         method: "browsingContext.print",
         params: browsingContext.PrintParameters
-      }
+      )
 
       browsingContext.PrintParameters = {
         context: browsingContext.BrowsingContext,
@@ -2943,10 +2943,10 @@ browsing context.
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      browsingContext.Reload = {
+      browsingContext.Reload = (
         method: "browsingContext.reload",
         params: browsingContext.ReloadParameters
-      }
+      )
 
       browsingContext.ReloadParameters = {
         context: browsingContext.BrowsingContext,
@@ -3002,10 +3002,10 @@ The <dfn export for=commands>browsingContext.setViewport</dfn> command  specific
    <dt>Command Type</dt>
    <dd>
     <pre class="cddl remote-cddl">
-      browsingContext.SetViewport = {
+      browsingContext.SetViewport = (
         method: "browsingContext.setViewport",
         params: browsingContext.SetViewportParameters
-      };
+      )
 
       browsingContext.SetViewportParameters = {
         context: browsingContext.BrowsingContext,
@@ -3059,10 +3059,10 @@ The [=remote end steps=] with |command parameters| are:
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        browsingContext.ContextCreated = {
+        browsingContext.ContextCreated = (
          method: "browsingContext.contextCreated",
          params: browsingContext.Info
-       }
+        )
       </pre>
    </dd>
 </dl>
@@ -3130,10 +3130,10 @@ The [=remote end subscribe steps=], with [=subscribe priority=] 1, given
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        browsingContext.ContextDestroyed = {
+        browsingContext.ContextDestroyed = (
          method: "browsingContext.contextDestroyed",
          params: browsingContext.Info
-       }
+        )
       </pre>
    </dd>
 </dl>
@@ -3175,10 +3175,10 @@ become inaccessible but not yet get discarded because bfcache.
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        browsingContext.NavigationStarted = {
+        browsingContext.NavigationStarted = (
          method: "browsingContext.navigationStarted",
          params: browsingContext.NavigationInfo
-       }
+        )
       </pre>
    </dd>
 </dl>
@@ -3214,10 +3214,10 @@ started</dfn> steps given |context| and |navigation status|:
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        browsingContext.FragmentNavigated = {
+        browsingContext.FragmentNavigated = (
          method: "browsingContext.fragmentNavigated",
          params: browsingContext.NavigationInfo
-       }
+        )
       </pre>
    </dd>
 </dl>
@@ -3253,10 +3253,10 @@ navigated</dfn> steps given |context| and |navigation status|:
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        browsingContext.DomContentLoaded = {
+        browsingContext.DomContentLoaded = (
          method: "browsingContext.domContentLoaded",
          params: browsingContext.NavigationInfo
-       }
+        )
       </pre>
    </dd>
 </dl>
@@ -3292,10 +3292,10 @@ loaded</dfn> steps given |context| and |navigation status|:
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        browsingContext.Load = {
+        browsingContext.Load = (
          method: "browsingContext.load",
          params: browsingContext.NavigationInfo
-       }
+        )
       </pre>
    </dd>
 </dl>
@@ -3330,10 +3330,10 @@ complete</dfn> steps given |context| and |navigation status|:
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        browsingContext.DownloadWillBegin = {
+        browsingContext.DownloadWillBegin = (
          method: "browsingContext.downloadWillBegin",
          params: browsingContext.NavigationInfo
-       }
+        )
       </pre>
    </dd>
 </dl>
@@ -3368,10 +3368,10 @@ started</dfn> steps given |context| and |navigation status|:
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        browsingContext.NavigationAborted = {
+        browsingContext.NavigationAborted = (
          method: "browsingContext.navigationAborted",
          params: browsingContext.NavigationInfo
-       }
+        )
       </pre>
    </dd>
 </dl>
@@ -3407,10 +3407,10 @@ aborted</dfn> steps given |context| and |navigation status|:
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        browsingContext.NavigationFailed = {
+        browsingContext.NavigationFailed = (
          method: "browsingContext.navigationFailed",
          params: browsingContext.NavigationInfo
-       }
+        )
       </pre>
    </dd>
 </dl>
@@ -3445,10 +3445,10 @@ failed</dfn> steps given |context| and |navigation status|:
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        browsingContext.UserPromptClosed = {
+        browsingContext.UserPromptClosed = (
           method: "browsingContext.userPromptClosed",
           params: browsingContext.UserPromptClosedParameters
-        }
+        )
 
         browsingContext.UserPromptClosedParameters = {
           context: browsingContext.BrowsingContext,
@@ -3493,10 +3493,10 @@ closed</dfn> steps given |window|, |accepted| and optional |user text|
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        browsingContext.UserPromptOpened = {
+        browsingContext.UserPromptOpened = (
           method: "browsingContext.userPromptOpened",
           params: browsingContext.UserPromptOpenedParameters
-        }
+        )
 
         browsingContext.UserPromptOpenedParameters = {
           context: browsingContext.BrowsingContext,
@@ -4758,10 +4758,10 @@ The <dfn export for=commands>network.addIntercept</dfn> command adds a
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      network.AddIntercept = {
+      network.AddIntercept = (
         method: "network.addIntercept",
         params: network.AddInterceptParameters
-      }
+      )
 
       network.AddInterceptParameters = {
         phases: [+network.InterceptPhase],
@@ -4819,10 +4819,10 @@ that's blocked by a [=network intercept=].
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      network.ContinueRequest = {
+      network.ContinueRequest = (
         method: "network.continueRequest",
         params: network.ContinueRequestParameters
-      }
+      )
 
       network.ContinueRequestParameters = {
         request: network.Request,
@@ -4943,10 +4943,10 @@ response, but still provide the network response body.
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      network.ContinueResponse = {
+      network.ContinueResponse = (
         method: "network.continueResponse",
         params: network.ContinueResponseParameters
-      }
+      )
 
       network.ContinueResponseParameters = {
         request: network.Request,
@@ -5077,10 +5077,10 @@ response that's blocked by a [=network intercept=] at the
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      network.ContinueWithAuth = {
+      network.ContinueWithAuth = (
         method: "network.continueWithAuth",
         params: network.ContinueWithAuthParameters
-      }
+      )
 
       network.ContinueWithAuthParameters = {
         request: network.Request,
@@ -5151,10 +5151,10 @@ fetch that's blocked by a [=network intercept=].
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      network.FailRequest = {
+      network.FailRequest = (
         method: "network.failRequest",
         params: network.FailRequestParameters
-      }
+      )
 
       network.FailRequestParameters = {
         request: network.Request,
@@ -5209,10 +5209,10 @@ lifecycle, and therefore emitting other events as it progresses.
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      network.ProvideResponse = {
+      network.ProvideResponse = (
         method: "network.provideResponse",
         params: network.ProvideResponseParameters
-      }
+      )
 
       network.ProvideResponseParameters = {
         request: network.Request,
@@ -5264,10 +5264,10 @@ The <dfn export for=commands>network.removeIntercept</dfn> command removes a
    <dt>Command Type</dt>
    <dd>
     <pre class="cddl remote-cddl">
-      network.RemoveIntercept = {
+      network.RemoveIntercept = (
         method: "network.removeIntercept",
         params: network.RemoveInterceptParameters
-      }
+      )
 
       network.RemoveInterceptParameters = {
         intercept: network.Intercept
@@ -5308,10 +5308,10 @@ The [=remote end steps=] given |session| and |command parameters| are:
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-      network.AuthRequired = {
+      network.AuthRequired = (
         method: "network.authRequired",
         params: network.AuthRequiredParameters
-      }
+      )
 
       network.AuthRequiredParameters = {
         network.BaseParameters,
@@ -5385,10 +5385,10 @@ steps given |request| and |response|:
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        network.BeforeRequestSent = {
+        network.BeforeRequestSent = (
          method: "network.beforeRequestSent",
          params: network.BeforeRequestSentParameters
-       }
+        )
 
        network.BeforeRequestSentParameters = {
          network.BaseParameters,
@@ -5469,10 +5469,10 @@ request sent</dfn> steps given |request|:
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        network.FetchError = {
+        network.FetchError = (
          method: "network.fetchError",
          params: network.FetchErrorParameters
-       }
+        )
 
        network.FetchErrorParameters = {
          network.BaseParameters,
@@ -5527,10 +5527,10 @@ error</dfn> steps given |request|:
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        network.ResponseCompleted = {
+        network.ResponseCompleted = (
          method: "network.responseCompleted",
          params: network.ResponseCompletedParameters
-       }
+        )
 
        network.ResponseCompletedParameters = {
          network.BaseParameters,
@@ -5586,10 +5586,10 @@ completed</dfn> steps given |request| and |response|:
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        network.ResponseStarted = {
+        network.ResponseStarted = (
          method: "network.responseStarted",
          params: network.ResponseStartedParameters
-       }
+        )
 
        network.ResponseStartedParameters = {
          network.BaseParameters,
@@ -7589,10 +7589,10 @@ script=].
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      script.AddPreloadScriptCommand = {
+      script.AddPreloadScriptCommand = (
         method: "script.addPreloadScript",
         params: script.AddPreloadScriptParameters
-      }
+      )
 
       script.AddPreloadScriptParameters = {
         functionDeclaration: text,
@@ -7646,10 +7646,10 @@ other handles or strong ECMAScript references.
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      script.Disown = {
+      script.Disown = (
         method: "script.disown",
         params: script.DisownParameters
-      }
+      )
 
       script.DisownParameters = {
         handles: [*script.Handle]
@@ -7697,10 +7697,10 @@ Note: In case of an arrow function in <code>functionDeclaration</code>, the
    <dt>Command Type</dt>
    <dd>
     <pre class="cddl remote-cddl">
-      script.CallFunction = {
+      script.CallFunction = (
         method: "script.callFunction",
         params: script.CallFunctionParameters
-      }
+      )
 
       script.CallFunctionParameters = {
         functionDeclaration: text,
@@ -7881,10 +7881,10 @@ the promise is returned.
    <dt>Command Type</dt>
    <dd>
       <pre class="cddl remote-cddl">
-      script.Evaluate = {
+      script.Evaluate = (
         method: "script.evaluate",
         params: script.EvaluateParameters
-      }
+      )
 
       script.EvaluateParameters = {
         expression: text,
@@ -8458,10 +8458,10 @@ provide additional fields specific to the entry type.
    <dt>Event Type</dt>
    <dd>
       <pre class="cddl local-cddl">
-        log.EntryAdded = {
+        log.EntryAdded = (
          method: "log.entryAdded",
          params: log.Entry,
-       }
+        )
       </pre>
    </dd>
 </dl>
