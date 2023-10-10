@@ -8828,7 +8828,8 @@ specified sequence of user input actions.
         input.NoneSourceActions /
         input.KeySourceActions /
         input.PointerSourceActions /
-        input.WheelSourceActions
+        input.WheelSourceActions /
+        input.OSSourceActions
       )
 
       input.NoneSourceActions = {
@@ -8881,6 +8882,22 @@ specified sequence of user input actions.
         input.PauseAction /
         input.WheelScrollAction
       )
+
+      input.OSSourceActions = {
+         type: "os",
+         actions: [*input.OSSourceAction]
+      }
+
+      input.OSSourceAction = (
+         input.PauseAction /
+         input.UploadFileAction
+      )
+
+      input.UploadFileAction = {
+         type: "uploadFile",
+         files: [*text],
+         ? element: script.SharedReference
+      }
 
       input.PauseAction = {
         type: "pause",
@@ -9005,6 +9022,16 @@ state associated with the current session.
     </pre>
    </dd>
 </dl>
+
+<div algorithm>
+
+To <dfn export>dispatch an uploadFile action</dfn> given |action object|,
+|source|, |global key state|, |tick duration|, |browsing context|, and |actions
+options|:
+
+1. 
+
+</div>
 
 <div algorithm="remote end steps for input.releaseActions">
 
