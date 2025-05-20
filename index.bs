@@ -4820,6 +4820,10 @@ TODO: Move it as a hook in the html spec instead.
    1. If [=geolocation overrides map=] [=map/contains=] |user context|,
       [=set emulated position data=] with |navigable| and [=geolocation overrides map=][|user context|].
 
+1. If [=user context to locale overrides map=] [=map/contains=] |user context|,
+   [=set emulated locale=] with |navigable| and
+   [=user context to locale overrides map=][|user context|].
+
 1. If [=viewport overrides map=] [=map/contains=] |user context|:
 
    1. If |navigable| is a [=/top-level traversable=] and the <code>viewport</code> field of
@@ -5790,6 +5794,17 @@ locale on the given top-level traversables or user contexts.
    </dd>
 </dl>
 
+<div>
+To <dfn>set emulated locale</dfn> given |navigable| and |locale|:
+
+1. If |emulated locale| is null, [=map/remove=] |navigable| from
+   [=navigable to locale overrides map=].
+
+1. Otherwise, [=map/set=] [=navigable to locale overrides map=][|navigable|] to
+   |locale|.
+
+</div>
+
 <div algorithm="remote end steps for emulation.setLocaleOverride">
 
 The [=remote end steps=] with |command parameters| are:
@@ -5811,16 +5826,11 @@ The [=remote end steps=] with |command parameters| are:
    1. If [=IsStructurallyValidLanguageTag=](|emulated locale|) returns false,
       return [=error=] with [=error code=] [=invalid argument=].
 
+1. Let |navigables| be a [=/set=].
+
 1. If the <code>contexts</code> field of |command parameters| is present:
 
    1. Let |navigables| be the result of [=trying=] to [=get valid top-level traversables by ids=] with |command parameters|["<code>contexts</code>"].
-
-   1. For each |navigable| of |navigables|:
-
-      1. If |emulated locale| is null, [=map/remove=] |navigable| from
-         [=navigable to locale overrides map=].
-
-      1. Otherwise, [=map/set=] [=navigable to locale overrides map=][|navigable|] to |locale|.
 
 1. Otherwise, if the <code>userContexts</code> field of |command parameters| is present:
 
@@ -5833,6 +5843,15 @@ The [=remote end steps=] with |command parameters| are:
 
       1. Otherwise, [=user context to locale overrides map=][|user context|] to
          |locale|.
+
+      1. [=list/For each=] |top-level traversable| of the list of all [=/top-level traversables=]
+         whose [=associated user context=] is |user context|:
+
+         1. [=list/Append=] |top-level traversable| to |navigables|.
+
+1. For each |navigable| of |navigables|:
+
+   1. [=Set emulated locale=] with |navigable| and |locale|.
 
 1. Return [=success=] with data null.
 
