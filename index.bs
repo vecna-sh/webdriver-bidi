@@ -5797,7 +5797,7 @@ locale on the given top-level traversables or user contexts.
 <div>
 To <dfn>set emulated locale</dfn> given |navigable| and |locale|:
 
-1. If |emulated locale| is null, [=map/remove=] |navigable| from
+1. If |locale| is null, [=map/remove=] |navigable| from
    [=navigable to locale overrides map=].
 
 1. Otherwise, [=map/set=] [=navigable to locale overrides map=][|navigable|] to
