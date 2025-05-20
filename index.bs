@@ -4820,9 +4820,9 @@ TODO: Move it as a hook in the html spec instead.
    1. If [=geolocation overrides map=] [=map/contains=] |user context|,
       [=set emulated position data=] with |navigable| and [=geolocation overrides map=][|user context|].
 
-1. If [=user context to locale overrides map=] [=map/contains=] |user context|,
-   [=set emulated locale=] with |navigable| and
-   [=user context to locale overrides map=][|user context|].
+   1. If [=user context to locale overrides map=] [=map/contains=] |user context|,
+      [=set emulated locale=] with |navigable| and
+      [=user context to locale overrides map=][|user context|].
 
 1. If [=viewport overrides map=] [=map/contains=] |user context|:
 
