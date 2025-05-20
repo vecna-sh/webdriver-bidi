@@ -5830,11 +5830,16 @@ The [=remote end steps=] with |command parameters| are:
 
 1. If the <code>contexts</code> field of |command parameters| is present:
 
-   1. Let |navigables| be the result of [=trying=] to [=get valid top-level traversables by ids=] with |command parameters|["<code>contexts</code>"].
+   1. Let |navigables| be the result of [=trying=] to
+      [=get valid top-level traversables by ids=] with
+      |command parameters|["<code>contexts</code>"].
 
-1. Otherwise, if the <code>userContexts</code> field of |command parameters| is present:
+1. Otherwise:
 
-   1. Let |user contexts| be the result of [=trying=] to [=get valid user contexts=] with |command parameters|["<code>userContexts</code>"].
+   1. Assert the <code>userContexts</code> field of |command parameters| is present.
+
+   1. Let |user contexts| be the result of [=trying=] to [=get valid user contexts=]
+      with |command parameters|["<code>userContexts</code>"].
 
    1. For each |user context| of |user contexts|:
 
@@ -5844,8 +5849,9 @@ The [=remote end steps=] with |command parameters| are:
       1. Otherwise, [=user context to locale overrides map=][|user context|] to
          |locale|.
 
-      1. [=list/For each=] |top-level traversable| of the list of all [=/top-level traversables=]
-         whose [=associated user context=] is |user context|:
+      1. [=list/For each=] |top-level traversable| of the list of all
+         [=/top-level traversables=] whose [=associated user context=] is
+         |user context|:
 
          1. [=list/Append=] |top-level traversable| to |navigables|.
 
@@ -8346,12 +8352,6 @@ following steps, instead of the ones defined by [=DefaultLocale=] specification:
        |top-level traversable|:
 
         1. Return [=navigable to locale overrides map=][|top-level traversable|].
-
-    1. Let |user context| be the |navigable|'s [=associated user context=].
-
-    1. If [=user context to locale overrides map=] [=map/contains=] |user context|:
-
-       1. Return [=user context to locale overrides map=][|user context|].
 
 1. Proceed according to [=DefaultLocale=] specification.
 
