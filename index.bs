@@ -5780,7 +5780,7 @@ locale on the given top-level traversables or user contexts.
       )
 
       emulation.SetLocaleOverrideParameters = {
-        ? locale: text,
+        locale: text / null,
         ? contexts: [+browsingContext.BrowsingContext],
         ? userContexts: [+browser.UserContext],
       }
